@@ -3,11 +3,30 @@
 namespace App\Http\Controllers\Crud;
 
 use App\Crud\Person;
+use App\Crud\PersonRepository\PersonsRepository;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+/**
+ * Class PersonsController
+ * @package App\Http\Controllers\Crud
+ */
 class PersonsController extends Controller
 {
+    /**
+     * @var PersonsRepository
+     */
+    private PersonsRepository $repository;
+
+    /**
+     * PersonsController constructor.
+     * @param PersonsRepository $repository
+     */
+    public function __construct(PersonsRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +34,7 @@ class PersonsController extends Controller
      */
     public function index()
     {
-        $data['persons'] = Person::orderBy('id','desc')->paginate(10);
-        return view('person.list',$data);
+        return view('person.list', ['persons' => $this->repository->getAll()]);
     }
 
     /**
@@ -44,7 +62,7 @@ class PersonsController extends Controller
             'age' => 'required'
         ]);
 
-        Person::create($request->all());
+        $this->repository->create($request->all());
         return redirect()->to('persons')->with('success','Человек добавлен!');
 
     }
@@ -68,8 +86,7 @@ class PersonsController extends Controller
      */
     public function edit($id)
     {
-        $data['person_data'] = Person::where(["id" => $id])->first();
-        return view('person.edit', $data);
+        return view('person.edit', ['person_data' => $this->repository->find($id)]);
     }
 
     /**
@@ -88,26 +105,18 @@ class PersonsController extends Controller
             'age' => 'required'
         ]);
 
-        $update = [
-            'firstName' => $request->input('firstName'),
-            'lastName' => $request->input('lastName'),
-            'email' => $request->input('email'),
-            'age' => $request->input('age')
-        ];
-
-        Person::where('id',$id)->update($update);
+        $this->repository->update($id, $request->all());
         return redirect()->to("persons")->with('success','Параметры описания изменены!');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function destroy($id)
     {
-        Person::where('id', $id)->delete();
+        $this->repository->delete($id);
         return redirect()->to('persons')->with('success','Человек был удален');
     }
 }

@@ -4,6 +4,7 @@ body{
 }
 
 .container{
+    margin-top: 25px;
     background: #f6fcfc;
     padding: 2%;
     border-bottom-color: #636b6f;

@@ -1,6 +1,7 @@
 @extends('person.layout')
 @section('content')
 <div class="container">
+    <h2>Все пользователи</h2>
     <a id="m_btn_icon" href="{{ route('persons.create') }}"><img src={{asset('images/add_person.png')}}></a>
     <br>
     <div class="row">
@@ -35,7 +36,6 @@
                             {{ csrf_field() }}
                             @method('DELETE')
                             <button id="t_btn_del" type="submit"  type="submit"><img src={{asset('images/delete_icon.png')}}></button>
-
                         </form>
 
 
@@ -44,7 +44,6 @@
                 @endforeach
                 </tbody>
             </table>
-            {!! $persons->links() !!}
         </div>
     </div>
 </div>
