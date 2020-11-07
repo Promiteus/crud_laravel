@@ -18,8 +18,10 @@ table#laravel_crud {
     box-shadow: 3px 3px 5px #636b6f;
 }
 
-table#laravel_crud tr td {
+table#laravel_crud tr td,th {
     font-weight: bold;
+    vertical-align : baseline;
+    text-align: center;
 }
 
 #m_btn_icon img {

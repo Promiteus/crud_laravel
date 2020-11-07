@@ -9,14 +9,14 @@
             <table class="table table-sm table-hover" id="laravel_crud">
                 <thead class="thead-dark">
                 <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">Имя</th>
-                    <th scope="col">Фамилия</th>
-                    <th scope="col">Почта (email)</th>
-                    <th scope="col">Возраст</th>
-                    <th scope="col">Создан</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th>id</th>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Почта (email)</th>
+                    <th>Возраст</th>
+                    <th>Создан</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
