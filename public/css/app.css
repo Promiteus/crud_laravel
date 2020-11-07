@@ -1,0 +1,41 @@
+
+body{
+    background-color: #a7a5a5;
+}
+
+.container{
+    background: #f6fcfc;
+    padding: 2%;
+    border-bottom-color: #636b6f;
+    border-width: 1px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 4px #636b6f;
+}
+
+table#laravel_crud {
+    background: #faf5e8;
+    box-shadow: 3px 3px 5px #636b6f;
+}
+
+table#laravel_crud tr td {
+    font-weight: bold;
+}
+
+#m_btn_icon img {
+    height: 55px;
+    margin: 4px 2px;
+}
+
+#t_btn_icon img {
+    height: 35px;
+    padding: 0;
+    margin: 0;
+}
+
+#t_btn_del img{
+    height: 35px;
+}
+
+#f_edit_create {
+    width: 35%;
+}

@@ -15,9 +15,8 @@ class PersonsController extends Controller
      */
     public function index()
     {
-        $data['products'] = Person::orderBy('id','desc')->paginate(10);
+        $data['persons'] = Person::orderBy('id','desc')->paginate(10);
         return view('person.list',$data);
-
     }
 
     /**
@@ -39,15 +38,14 @@ class PersonsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'firstName' => 'required|size:50',
-            'lastName' => 'size:50',
+            'firstName' => 'required',
+            'lastName' => 'required',
             'email' => 'required|email',
-            'age' => 'required|min:12|max:70'
+            'age' => 'required'
         ]);
 
         Person::create($request->all());
-        return Redirect::to('persons')
-            ->with('success','Успешно! Человек добавлен.');
+        return redirect()->to('persons')->with('success','Человек добавлен!');
 
     }
 
@@ -70,7 +68,8 @@ class PersonsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['person_data'] = Person::where(["id" => $id])->first();
+        return view('person.edit', $data);
     }
 
     /**
@@ -82,7 +81,22 @@ class PersonsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'email' => 'required|email',
+            'age' => 'required'
+        ]);
+
+        $update = [
+            'firstName' => $request->input('firstName'),
+            'lastName' => $request->input('lastName'),
+            'email' => $request->input('email'),
+            'age' => $request->input('age')
+        ];
+
+        Person::where('id',$id)->update($update);
+        return redirect()->to("persons")->with('success','Параметры описания изменены!');
     }
 
     /**
@@ -93,6 +107,7 @@ class PersonsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Person::where('id', $id)->delete();
+        return redirect()->to('persons')->with('success','Человек был удален');
     }
 }
