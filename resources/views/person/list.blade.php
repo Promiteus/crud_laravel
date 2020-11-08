@@ -1,6 +1,6 @@
 @extends('person.layout')
 @section('content')
-<div class="container">
+<div id="person_container" class="container">
     <h2>Все пользователи</h2>
     <a id="m_btn_icon" href="{{ route('persons.create') }}"><img src={{asset('images/add_person.png')}}></a>
     <br>

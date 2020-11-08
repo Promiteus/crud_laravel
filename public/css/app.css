@@ -7,6 +7,62 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+
+
+body{
+    /*background-color: #a7a5a5;*/
+    background: url('/images/background/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#person_container {
+    margin-top: 25px;
+    background: #f6fcfc;
+    border-bottom-color: #636b6f;
+    border-width: 1px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 4px #636b6f;
+    opacity: 0.9;
+}
+
+.container {
+    opacity: 0.9;
+}
+
+
+table#laravel_crud {
+    background: #faf5e8;
+    box-shadow: 3px 3px 5px #636b6f;
+    border-radius: 8px;
+}
+
+table#laravel_crud tr td,th {
+    font-weight: bold;
+    vertical-align : baseline;
+    text-align: center;
+}
+
+#m_btn_icon img {
+    height: 40px;
+    margin: 4px 2px;
+}
+
+#t_btn_icon img {
+    height: 35px;
+    padding: 0;
+    margin: 0;
+}
+
+#t_btn_del img{
+    height: 35px;
+}
+
+#f_edit_create {
+    width: 35%;
+}
+
+
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
@@ -4504,6 +4560,8 @@ input[type=button].btn-block {
   padding: 0.5rem 1rem;
 }
 
+
+
 .navbar .container,
 .navbar .container-fluid,
 .navbar .container-sm,
@@ -4832,7 +4890,8 @@ input[type=button].btn-block {
 }
 
 .navbar-light .navbar-brand {
-  color: rgba(0, 0, 0, 0.9);
+  color: yellow;
+  font-weight: bold;
 }
 
 .navbar-light .navbar-brand:hover,
@@ -4939,10 +4998,12 @@ input[type=button].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #1d1642;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+  color:white;
+  opacity: 0.9;
 }
 
 .card > hr {
@@ -7043,7 +7104,8 @@ button.bg-dark:focus {
 }
 
 .bg-white {
-  background-color: #fff !important;
+  background-color: #1b1e21 !important;
+  opacity: 0.9;
 }
 
 .bg-transparent {
