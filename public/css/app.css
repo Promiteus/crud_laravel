@@ -1,6 +1,8 @@
 
 body{
-    background-color: #a7a5a5;
+    /*background-color: #a7a5a5;*/
+    background: url('/images/background/bg.jpg');
+    background-size: cover;
 }
 
 .container{
@@ -11,11 +13,13 @@ body{
     border-width: 1px;
     border-radius: 8px;
     box-shadow: 3px 3px 4px #636b6f;
+    opacity: 0.8;
 }
 
 table#laravel_crud {
     background: #faf5e8;
     box-shadow: 3px 3px 5px #636b6f;
+    border-radius: 8px;
 }
 
 table#laravel_crud tr td,th {
@@ -25,7 +29,7 @@ table#laravel_crud tr td,th {
 }
 
 #m_btn_icon img {
-    height: 55px;
+    height: 40px;
     margin: 4px 2px;
 }
 
