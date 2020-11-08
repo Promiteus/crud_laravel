@@ -18,3 +18,7 @@ Route::get('/', function () {
 });
 
 Route::resource("persons", \Crud\PersonsController::class);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
