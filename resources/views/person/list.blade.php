@@ -1,6 +1,15 @@
 @extends('person.layout')
 @section('content')
 <div id="person_container" class="container">
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
+    <a href="{{ route('logout') }}"
+       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+        <button class="btn btn-primary">Выход</button>
+    </a>
+
     <h2>Все пользователи</h2>
     <a id="m_btn_icon" href="{{ route('persons.create') }}"><img src={{asset('images/add_person.png')}}></a>
     <br>
@@ -35,8 +44,17 @@
                         <form action="{{ route('persons.destroy', $person->id)}}" method="post">
                             {{ csrf_field() }}
                             @method('DELETE')
-                            <button id="t_btn_del" type="submit"  type="submit"><img src={{asset('images/delete_icon.png')}}></button>
+                            <button id="t_btn_del" class="btn btn-danger" type="submit"  type="submit">Удалить</button>
                         </form>
+
+                        <!--<form id="delete-form" action="{{ route('persons.destroy', $person->id)}}" method="post">
+                            {{ csrf_field() }}
+                            @method('DELETE')
+                            <a id="t_btn_icon" class="dropdown-item" href="#"
+                                onclick="event.preventDefault(); document.getElementById('delete-form').submit();">
+                                <img src={{asset('images/delete_icon.png')}}>
+                            </a>
+                        </form>-->
 
 
                     </td>

@@ -10,10 +10,10 @@
 
 
 body{
-    /*background-color: #a7a5a5;*/
     background: url('/images/background/bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #person_container {
@@ -23,7 +23,8 @@ body{
     border-width: 1px;
     border-radius: 8px;
     box-shadow: 3px 3px 4px #636b6f;
-    opacity: 0.9;
+    opacity: 0.8;
+    padding: 10px 22px;
 }
 
 .container {
@@ -40,6 +41,10 @@ table#laravel_crud {
 table#laravel_crud tr td,th {
     font-weight: bold;
     vertical-align : baseline;
+    text-align: center;
+}
+
+table#laravel_crud thead tr th {
     text-align: center;
 }
 
@@ -60,7 +65,18 @@ table#laravel_crud tr td,th {
 
 #f_edit_create {
     width: 35%;
+    margin-top: 25px;
+    background: #f6fcfc;
+    border-bottom-color: #636b6f;
+    border-width: 1px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 4px #636b6f;
+    padding: 10px 28px;
+    opacity: 0.9;
 }
+
+
+
 
 
 :root {
@@ -4543,6 +4559,10 @@ input[type=button].btn-block {
   text-align: center;
 }
 
+.nav-item {
+    color: white;
+}
+
 .tab-content > .tab-pane {
   display: none;
 }
@@ -4623,7 +4643,7 @@ input[type=button].btn-block {
   padding: 0.25rem 0.75rem;
   font-size: 1.125rem;
   line-height: 1;
-  background-color: transparent;
+  background-color: white;
   border: 1px solid transparent;
   border-radius: 0.25rem;
 }
@@ -5031,6 +5051,10 @@ input[type=button].btn-block {
 .card > .card-header + .list-group,
 .card > .list-group + .card-footer {
   border-top: 0;
+}
+
+.card-header {
+    font-size: 22px;
 }
 
 .card-body {
