@@ -29,7 +29,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($persons as $person)
+                @forelse($persons as $person)
                 <tr>
                     <td>{{ $person->id }}</td>
                     <td>{{ $person->firstName }}</td>
@@ -59,7 +59,9 @@
 
                     </td>
                 </tr>
-                @endforeach
+                @empty
+                  <td colspan="8">ЗДЕСЬ ПОКА НЕТ ДАННЫХ! ДОБАВЬТЕ КОГО-НИБУДЬ.</td>
+                @endforelse
                 </tbody>
             </table>
         </div>
