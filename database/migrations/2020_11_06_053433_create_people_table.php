@@ -17,7 +17,7 @@ class CreatePeopleTable extends Migration
             $table->id();
             $table->string('firstName', 50);
             $table->string('lastName', 50)->nullable();
-            $table->string('email', 30)->unique();
+            $table->string('email', 30);
             $table->integer("age");
             $table->timestamps();
         });
