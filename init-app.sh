@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
+
+sudo chmod -R 777 ./src/storage
 echo 'Installing new dependencies...'
 docker exec -it  crud-php-fpm bash -c "composer install"
 echo 'Clearing cache...'
