@@ -4,6 +4,20 @@ networks:
   crud-net:
 
 services:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    env_file: .env #Файл, где находятся настройки в виде переменных среды
+    depends_on:
+      - mysql
+    ports:
+      - 8181:80
+    environment:
+      PMA_HOST: mysql
+      MYSQL_USERNAME: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - crud-net
+
   mysql:
     container_name: crud_mysql
     image: mysql:5.7
@@ -29,7 +43,8 @@ services:
   crud-nginx:
     build: docker/nginx
     stdin_open: true
-    stop_grace_period: 1s
+    depends_on:
+      - crud-php-fpm
     ports:
       - "1010:1000"
     volumes: # Передает кофигурацию для веб-сервера
@@ -53,7 +68,6 @@ services:
       DB_USERNAME: ${DB_USERNAME} #Имя пользователя для подключения к базе данных
       DB_PASSWORD: ${DB_PASSWORD} #Пароль для подключения к базе данных
     stdin_open: true
-    stop_grace_period: 3s
     volumes:
       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
       - ./:/var/www
