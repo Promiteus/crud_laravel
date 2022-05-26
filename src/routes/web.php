@@ -17,7 +17,7 @@ Route::get('/', function () {
     return redirect()->to("persons");
 });
 
-Route::resource("persons", \Crud\PersonsController::class);
+Route::resource("persons", \PersonsController::class);
 
 Auth::routes();
 

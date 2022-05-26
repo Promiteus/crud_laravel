@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Crud\PersonRepository\Contract;
+namespace App\Repositories\Contract;
 
-
-use App\Crud\Person;
+use App\Person;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
- * Interface CrudPersonContract
+ * Interface PersonRepositoryContract
  * @package App\Crud\PersonRepository\Contract
  */
-interface CrudPersonContract
+interface PersonRepositoryContract
 {
     /**
      * @param array $data

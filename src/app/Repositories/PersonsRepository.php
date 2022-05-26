@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Crud\PersonRepository;
+namespace App\Repositories;
 
-use App\Crud\Person;
-use App\Crud\PersonRepository\Contract\CrudPersonContract;
+
+use App\Person;
+use App\Repositories\Contract\PersonRepositoryContract;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
  * Class PersonsRepository
  * @package App\Crud\PersonRepository
  */
-class PersonsRepository implements CrudPersonContract
+class PersonsRepository implements PersonRepositoryContract
 {
     /**
      * @var Person

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Crud;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Person extends Model
 {
-    //
     protected $fillable = [
        "firstName",
        "lastName",

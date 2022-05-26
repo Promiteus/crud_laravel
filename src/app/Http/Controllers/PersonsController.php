@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Crud;
+namespace App\Http\Controllers;
 
-use App\Crud\PersonRepository\Contract\CrudPersonContract;
-use App\Crud\PersonRepository\PersonsRepository;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Crud\PersonRequest;
+use App\Http\Requests\PersonRequest;
+use App\Repositories\Contract\PersonRepositoryContract;
 
 
 /**
@@ -15,15 +13,15 @@ use App\Http\Requests\Crud\PersonRequest;
 class PersonsController extends Controller
 {
     /**
-     * @var CrudPersonContract
+     * @var PersonRepositoryContract
      */
-    private CrudPersonContract $repository;
+    private PersonRepositoryContract $repository;
 
     /**
      * PersonsController constructor.
-     * @param PersonsRepository $repository
+     * @param PersonRepositoryContract $repository
      */
-    public function __construct(PersonsRepository $repository)
+    public function __construct(PersonRepositoryContract $repository)
     {
         $this->repository = $repository;
         $this->middleware('auth');
