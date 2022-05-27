@@ -6,6 +6,7 @@ namespace App\Repositories;
 use App\Person;
 use App\Repositories\Contract\PersonRepositoryContract;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class PersonsRepository
@@ -47,13 +48,13 @@ class PersonsRepository implements PersonRepositoryContract
     }
 
     /**
-     * @param $id
+     * @param int $id
      * @param array $data
      * @return bool
      */
-    final public function update($id, array $data): bool
+    final public function update(int $id, array $data): bool
     {
-       $person = $this->model->newQuery()->find($id);
+       $person = $this->find($id);
        if ($person) {
           return $person->update($data);
        }
@@ -61,21 +62,25 @@ class PersonsRepository implements PersonRepositoryContract
     }
 
     /**
-     * @param $id
-     * @return mixed|void
+     * @param int $id
+     * @return bool
      * @throws \Exception
      */
-    public function delete($id)
+    final public function delete(int $id): bool
     {
-        $this->model->newModelQuery()->find($id)->delete();
+       $person = $this->find($id);
+        if ($person) {
+            return $person->delete();
+        }
+        return false;
     }
 
     /**
-     * @param $id
-     * @return Person
+     * @param int $id
+     * @return Model
      */
-    public function find($id): Person
+    final public function find(int $id): Model
     {
-       return $this->model->newModelQuery()->find($id);
+       return $this->model->newQuery()->find($id);
     }
 }

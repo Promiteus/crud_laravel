@@ -4,6 +4,7 @@ namespace App\Repositories\Contract;
 
 use App\Person;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Interface PersonRepositoryContract
@@ -23,21 +24,21 @@ interface PersonRepositoryContract
     public function getAll(): Collection ;
 
     /**
-     * @param $id
+     * @param int $id
      * @param array $data
      * @return bool
      */
-    public function update($id, array $data): bool;
+    public function update(int $id, array $data): bool;
 
     /**
-     * @param $id
-     * @return mixed
+     * @param int $id
+     * @return bool
      */
-    public function delete($id);
+    public function delete(int $id): bool;
 
     /**
-     * @param $id
-     * @return Person
+     * @param int $id
+     * @return Model
      */
-    public function find($id): Person;
+    public function find(int $id): Model;
 }
