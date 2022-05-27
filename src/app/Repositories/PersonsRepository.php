@@ -42,8 +42,10 @@ class PersonsRepository implements PersonRepositoryContract
      */
     final public function getAll(): Collection
     {
+        $userId = auth()->id();
         return $this->model
                 ->newQuery()
+                ->where(Person::USER_ID, '=', $userId)
                 ->orderBy(Person::ID, 'desc')->get();
     }
 
