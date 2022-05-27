@@ -4,17 +4,15 @@
     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
         @csrf
     </form>
-    <a href="{{ route('logout') }}"
-       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
         <button class="btn btn-primary">Выход</button>
     </a>
 
     <h2>Все пользователи</h2>
     <a id="m_btn_icon" href="{{ route('persons.create') }}"><img src={{asset('images/add_person.png')}}></a>
     <br>
-    <div class="row">
-        <div class="col-12">
+    <div class="row table-panel">
+        <div class="col-12 ">
             <table class="table table-sm table-hover" id="laravel_crud">
                 <thead class="thead-dark">
                 <tr>
@@ -46,17 +44,6 @@
                             @method('DELETE')
                             <button id="t_btn_del" class="btn btn-danger" type="submit"  type="submit">Удалить</button>
                         </form>
-
-                        <!--<form id="delete-form" action="{{ route('persons.destroy', $person->id)}}" method="post">
-                            {{ csrf_field() }}
-                            @method('DELETE')
-                            <a id="t_btn_icon" class="dropdown-item" href="#"
-                                onclick="event.preventDefault(); document.getElementById('delete-form').submit();">
-                                <img src={{asset('images/delete_icon.png')}}>
-                            </a>
-                        </form>-->
-
-
                     </td>
                 </tr>
                 @empty

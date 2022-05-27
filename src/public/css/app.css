@@ -17,7 +17,10 @@ body{
 }
 
 #person_container {
-    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-top: 1%;
     background: #f6fcfc;
     border-bottom-color: #636b6f;
     border-width: 1px;
@@ -25,6 +28,7 @@ body{
     box-shadow: 3px 3px 4px #636b6f;
     opacity: 0.8;
     padding: 10px 22px;
+    height: 95vh;
 }
 
 .container {
@@ -36,6 +40,16 @@ table#laravel_crud {
     background: #faf5e8;
     box-shadow: 3px 3px 5px #636b6f;
     border-radius: 8px;
+}
+
+.table-panel {
+    background: #f4f6f2;
+    border: 1px solid black;
+    position: relative;
+    overflow: scroll;
+    flex-grow: 4;
+    padding: 6px;
+    border-radius: 6px;
 }
 
 table#laravel_crud tr td,th {
@@ -50,7 +64,7 @@ table#laravel_crud thead tr th {
 
 #m_btn_icon img {
     height: 40px;
-    margin: 4px 2px;
+    margin: 0;
 }
 
 #t_btn_icon img {
