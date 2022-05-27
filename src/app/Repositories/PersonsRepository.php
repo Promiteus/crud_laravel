@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-
 use App\Person;
 use App\Repositories\Contract\PersonRepositoryContract;
 use Illuminate\Database\Eloquent\Collection;

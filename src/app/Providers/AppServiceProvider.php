@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-
 use App\Repositories\Contract\PersonRepositoryContract;
 use App\Repositories\PersonsRepository;
 use Illuminate\Support\ServiceProvider;
