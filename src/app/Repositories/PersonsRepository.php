@@ -39,19 +39,25 @@ class PersonsRepository implements PersonRepositoryContract
     /**
      * @return Collection
      */
-    public function getAll(): Collection
+    final public function getAll(): Collection
     {
-        return $this->model->orderBy('id', 'desc')->get() ?? Collection::make([]);
+        return $this->model
+                ->newQuery()
+                ->orderBy(Person::ID, 'desc')->get();
     }
 
     /**
      * @param $id
      * @param array $data
-     * @return mixed|void
+     * @return bool
      */
-    public function update($id, array $data)
+    final public function update($id, array $data): bool
     {
-        $this->model->newModelQuery()->find($id)->update($data);
+       $person = $this->model->newQuery()->find($id);
+       if ($person) {
+          return $person->update($data);
+       }
+       return false;
     }
 
     /**

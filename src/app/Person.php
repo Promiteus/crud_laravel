@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Person extends Model
 {
+    public const ID = 'id';
     public const FIRST_NAME = 'firstName';
     public const LAST_NAME = 'lastName';
     public const EMAIL = 'email';

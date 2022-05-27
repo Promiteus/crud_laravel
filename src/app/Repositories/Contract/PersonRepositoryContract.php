@@ -25,9 +25,9 @@ interface PersonRepositoryContract
     /**
      * @param $id
      * @param array $data
-     * @return mixed
+     * @return bool
      */
-    public function update($id, array $data);
+    public function update($id, array $data): bool;
 
     /**
      * @param $id
