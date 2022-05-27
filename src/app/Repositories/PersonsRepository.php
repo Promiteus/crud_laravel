@@ -33,6 +33,7 @@ class PersonsRepository implements PersonRepositoryContract
      */
     public function create(array $data)
     {
+        $data[Person::USER_ID] = auth()->id();
         $this->model->create($data);
     }
 
