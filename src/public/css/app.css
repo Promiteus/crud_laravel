@@ -44,7 +44,7 @@ table#laravel_crud {
 
 .table-panel {
     background: #f4f6f2;
-    border: 1px solid black;
+    border: 1px solid gray;
     position: relative;
     overflow: scroll;
     flex-grow: 4;

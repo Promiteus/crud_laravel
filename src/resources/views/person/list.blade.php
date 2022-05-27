@@ -5,7 +5,7 @@
         @csrf
     </form>
     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-        <button class="btn btn-primary">Выход</button>
+        <button class="btn btn-primary mt-3">Выход</button>
     </a>
 
     <h2>Все пользователи</h2>
