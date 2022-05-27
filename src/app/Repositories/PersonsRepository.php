@@ -29,12 +29,11 @@ class PersonsRepository implements PersonRepositoryContract
 
     /**
      * @param array $data
-     * @return mixed|void
      */
-    public function create(array $data)
+    final public function create(array $data): void
     {
         $data[Person::USER_ID] = auth()->id();
-        $this->model->create($data);
+        $this->model->newQuery()->create($data);
     }
 
     /**
